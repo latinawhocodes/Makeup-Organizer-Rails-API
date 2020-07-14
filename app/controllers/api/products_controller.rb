@@ -3,19 +3,19 @@ class Api::ProductsController < ApplicationController
     def index 
         get_category
         @products = @category.products 
-        render json: @products
+        render json: @products, except: [:created_at, :updated_at]
     end 
 
     def show 
         get_category
         @products = @category.products.find_by(id: params[:id])
-        render json: @products
+        render json: @products, except: [:created_at, :updated_at]
     end
 
     def create 
         @product = @category.products.build(product_params)
         if @product.save 
-            render json: @product 
+            render json: @product, except: [:created_at, :updated_at]
         else 
             render json: {message: "ERROR"}
         end

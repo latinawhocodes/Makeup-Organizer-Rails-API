@@ -2,18 +2,18 @@ class Api::CategoriesController < ApplicationController
 
     def index 
         @categories = Category.all 
-        render json: @categories
+        render json: @categories, except: [:created_at, :updated_at]
     end 
 
     def show 
         find_category
-        render json: @category
+        render json: @category, except: [:created_at, :updated_at]
     end
 
     def create 
         @category = Category.new(category_params)
         if @category.save 
-            render json: @category 
+            render json: @category, except: [:created_at, :updated_at]
         else 
             render json: {message: "ERROR"}
         end
