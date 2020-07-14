@@ -12,8 +12,7 @@ class Api::ProductsController < ApplicationController
         render json: @products
     end
 
-    def create
-        get_category 
+    def create 
         @product = @category.products.build(product_params)
         if @product.save 
             render json: @product 
@@ -21,7 +20,7 @@ class Api::ProductsController < ApplicationController
             render json: {message: "ERROR"}
         end
     end 
-
+    
     def update
     end
 
