@@ -335,3 +335,80 @@ Processing by Api::ProductsController#index as HTML
 Completed 200 OK in 25ms (Views: 12.5ms | ActiveRecord: 0.7ms | Allocations: 11637)
 
 
+Started GET "/api/categories/" for ::1 at 2020-07-13 22:56:43 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::CategoriesController#index as HTML
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/controllers/api/categories_controller.rb:5:in `index'
+Completed 200 OK in 9ms (Views: 6.8ms | ActiveRecord: 0.8ms | Allocations: 5604)
+
+
+Started GET "/api/categories/2" for ::1 at 2020-07-13 22:56:48 -0400
+Processing by Api::CategoriesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/categories_controller.rb:35:in `find_category'
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 789)
+
+
+Started GET "/api/categories/2/products" for ::1 at 2020-07-13 22:56:52 -0400
+Processing by Api::ProductsController#index as HTML
+  Parameters: {"category_id"=>"2"}
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/products_controller.rb:40:in `get_category'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."category_id" = ?[0m  [["category_id", 2]]
+  ↳ app/controllers/api/products_controller.rb:6:in `index'
+Completed 200 OK in 23ms (Views: 19.4ms | ActiveRecord: 0.8ms | Allocations: 7882)
+
+
+Started GET "/api/categories/2/products" for ::1 at 2020-07-13 22:57:23 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::ProductsController#index as HTML
+  Parameters: {"category_id"=>"2"}
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/products_controller.rb:40:in `get_category'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."category_id" = ?[0m  [["category_id", 2]]
+  ↳ app/controllers/api/products_controller.rb:6:in `index'
+Completed 200 OK in 17ms (Views: 8.2ms | ActiveRecord: 1.2ms | Allocations: 11705)
+
+
+Started GET "/api/categories/2/products" for ::1 at 2020-07-13 22:57:23 -0400
+Processing by Api::ProductsController#index as HTML
+  Parameters: {"category_id"=>"2"}
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/products_controller.rb:40:in `get_category'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."category_id" = ?[0m  [["category_id", 2]]
+  ↳ app/controllers/api/products_controller.rb:6:in `index'
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.3ms | Allocations: 1870)
+
+
+Started GET "/api/categories/2/products" for ::1 at 2020-07-13 22:57:24 -0400
+Processing by Api::ProductsController#index as HTML
+  Parameters: {"category_id"=>"2"}
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/products_controller.rb:40:in `get_category'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."category_id" = ?[0m  [["category_id", 2]]
+  ↳ app/controllers/api/products_controller.rb:6:in `index'
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.2ms | Allocations: 1870)
+
+
+Started GET "/api/categories/2/products" for ::1 at 2020-07-13 22:57:24 -0400
+Processing by Api::ProductsController#index as HTML
+  Parameters: {"category_id"=>"2"}
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/products_controller.rb:40:in `get_category'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."category_id" = ?[0m  [["category_id", 2]]
+  ↳ app/controllers/api/products_controller.rb:6:in `index'
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.2ms | Allocations: 1870)
+
+
+Started GET "/api/categories/2/products/new" for ::1 at 2020-07-13 22:57:26 -0400
+Processing by Api::ProductsController#show as HTML
+  Parameters: {"category_id"=>"2", "id"=>"new"}
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/products_controller.rb:40:in `get_category'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."category_id" = ? AND "products"."id" = ? LIMIT ?[0m  [["category_id", 2], ["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/api/products_controller.rb:11:in `show'
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.3ms | Allocations: 1433)
+
+
