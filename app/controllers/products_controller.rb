@@ -1,14 +1,15 @@
 class Api::ProductsController < ApplicationController
-    #before_action: set_category
 
     def index 
-        @products = Product.all 
-        render json: @products 
+        get_category
+        @products = @category.products 
+        render json: @products
     end 
 
     def show 
-        find_product
-        render json: @product
+        get_category
+        @products = @category.products.find_by(id: params[:id])
+        render json: @products
     end
 
     def create 
@@ -18,16 +19,19 @@ class Api::ProductsController < ApplicationController
     end
 
     def destroy
+        get_category
+        find_product
+        @category = Category.find(@product.category_id)
+        @product.destroy 
     end
-
 
     private 
     def find_product
         @product = Product.find(params[:id])
     end
 
-    def set_category 
-
+    def get_category 
+        @category = Category.find(params[:category_id])
     end
 
     def product_params
