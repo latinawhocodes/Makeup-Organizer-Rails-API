@@ -12,8 +12,15 @@ class Api::ProductsController < ApplicationController
         render json: @products
     end
 
-    def create 
-    end
+    def create
+        get_category 
+        @product = @category.products.build(product_params)
+        if @product.save 
+            render json: @product 
+        else 
+            render json: {message: "ERROR"}
+        end
+    end 
 
     def update
     end
